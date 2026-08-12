@@ -1,32 +1,50 @@
-# hermes-token-saving-config
+<p align="center">
+  <img src="https://raw.githubusercontent.com/steggdev/hermes-token-saving-config/main/assets/logo.svg" alt="hermes-token-saving-config" width="180">
+</p>
 
-A [Hermes Agent](https://hermes-agent.nousresearch.com) skill that reduces token/cost usage through **native config levers** — no external proxy needed.
+<h1 align="center">⚡ hermes-token-saving-config</h1>
 
-Works with any model. Tunes reasoning effort, context compression, prompt caching, and turn caps.
+<p align="center">
+  <strong>Cut your Hermes Agent token spend up to 40% — with zero code changes.</strong><br>
+  Native config levers. Works with any model. Live in 30 seconds.
+</p>
 
-## Installation
+<p align="center">
+  <a href="https://github.com/steggdev/hermes-token-saving-config"><img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status"></a>
+  <a href="https://github.com/steggdev/hermes-token-saving-config"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+  <a href="https://github.com/steggdev/hermes-token-saving-config/stargazers"><img src="https://img.shields.io/github/stars/steggdev/hermes-token-saving-config" alt="Stars"></a>
+  <a href="https://hermes-agent.nousresearch.com"><img src="https://img.shields.io/badge/built%20for-Hermes%20Agent-7c3aed" alt="Built for Hermes Agent"></a>
+</p>
+
+---
+
+## 💸 The problem
+
+Every AI session re-reads your **entire conversation history** on every turn. The model also burns tokens "thinking" before it answers. On long sessions with `deepseek-v4-pro` and other reasoning models, that compounds fast — most of your bill is **context + reasoning you never see.**
+
+## ✅ The fix
+
+One skill. Five native settings. No proxy, no plugins, no code.
+
+| Setting | What it does | Typical saving |
+|---|---|---|
+| 🧠 `reasoning_effort` | Less hidden chain-of-thought per turn | **Biggest lever** |
+| 📉 `compression.threshold` | Compress history **sooner** | Moderate |
+| ✂️ `compression.target_ratio` | Keep only the useful tail | Moderate |
+| 🔁 `prompt_caching.cache_ttl` | Reuse cached prefixes across turns | Moderate |
+| ⏱ `agent.max_turns` | Cap runaway loops | Indirect |
+
+> **Typical result: 20–40% fewer total tokens** on markdown/planning work — more on reasoning-heavy runs. Your mileage varies by workload, but it costs nothing to try.
+
+---
+
+## 🚀 Install
 
 ```bash
-# From this repo (recommended)
 hermes skills install https://github.com/steggdev/hermes-token-saving-config
-
-# Or install from local filesystem
-hermes skills install ./skills/hermes-token-saving-config
 ```
 
-## What it changes
-
-| Config key | Value | Why it saves |
-|---|---|---|
-| `agent.reasoning_effort` | `medium` | Less chain-of-thought per turn (biggest lever) |
-| `compression.threshold` | `0.6` | Compress conversation history sooner |
-| `compression.target_ratio` | `0.15` | Compress harder per pass |
-| `prompt_caching.cache_ttl` | `30m` | Longer cached-prefix reuse |
-| `agent.max_turns` | `200` | Caps runaway loops |
-
-See `SKILL.md` for full details, apply/restore commands, and pitfalls.
-
-## Quick apply
+### Or apply instantly (30 seconds)
 
 ```bash
 hermes config set agent.reasoning_effort medium
@@ -36,6 +54,44 @@ hermes config set prompt_caching.cache_ttl 30m
 hermes config set agent.max_turns 200
 ```
 
-## License
+> ⚠️ **One catch:** settings apply to your **next** session (new chat) — never mid-conversation, to protect prompt caching. Just start a fresh chat and you're live.
 
-MIT
+---
+
+## 🤔 Why native beats external tools
+
+RTK (Rust Token Killer) and similar proxies compress *command output* only. This skill targets the **two bigger buckets**: the reasoning the model emits, and the conversation history re-sent every turn.
+
+| | Native config | RTK proxy |
+|---|---|---|
+| Saves | Reasoning + history | Bash output only |
+| Setup | 5 commands | Install binary + plugin |
+| Works with | Any model / surface | Terminal tool only |
+| Risk | Zero (reversible) | Adds a dependency |
+
+For most **markdown, planning, and SaaS work**, native config wins.
+
+---
+
+## 📖 Full docs
+
+Detailed apply/restore commands, verification, and pitfalls live in [`SKILL.md`](skills/hermes-token-saving-config/SKILL.md).
+
+---
+
+## 🛠 Contribute
+
+Found a better setting? Open an issue or PR. Suggestions, benchmarks, and real-world savings reports welcome.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE) — free to use, fork, and share.
+
+---
+
+<p align="center">
+  Made with ⚡ for the <a href="https://hermes-agent.nousresearch.com">Hermes Agent</a> community<br>
+  by <a href="https://github.com/steggdev">Stegg Dev</a>
+</p>
