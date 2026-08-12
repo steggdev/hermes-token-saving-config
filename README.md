@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/steggdev/hermes-token-saving-config/main/assets/logo.svg" alt="hermes-token-saving-config" width="180">
+  <img src="https://raw.githubusercontent.com/steggdev/hermes-token-saver/main/assets/logo.svg" alt="hermes-token-saver" width="180">
 </p>
 
-<h1 align="center">⚡ hermes-token-saving-config</h1>
+<h1 align="center">⚡ hermes-token-saver</h1>
 
 <p align="center">
   <strong>Cut your Hermes Agent token spend up to 40% — with zero code changes.</strong><br>
@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/steggdev/hermes-token-saving-config"><img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status"></a>
-  <a href="https://github.com/steggdev/hermes-token-saving-config"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
-  <a href="https://github.com/steggdev/hermes-token-saving-config/stargazers"><img src="https://img.shields.io/github/stars/steggdev/hermes-token-saving-config" alt="Stars"></a>
+  <a href="https://github.com/steggdev/hermes-token-saver"><img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status"></a>
+  <a href="https://github.com/steggdev/hermes-token-saver"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+  <a href="https://github.com/steggdev/hermes-token-saver/stargazers"><img src="https://img.shields.io/github/stars/steggdev/hermes-token-saving-config" alt="Stars"></a>
   <a href="https://hermes-agent.nousresearch.com"><img src="https://img.shields.io/badge/built%20for-Hermes%20Agent-7c3aed" alt="Built for Hermes Agent"></a>
 </p>
 
@@ -41,7 +41,7 @@ One skill. Five native settings. No proxy, no plugins, no code.
 ## 🚀 Install
 
 ```bash
-hermes skills install https://github.com/steggdev/hermes-token-saving-config
+hermes skills install https://github.com/steggdev/hermes-token-saver
 ```
 
 ### Or apply instantly (30 seconds)
